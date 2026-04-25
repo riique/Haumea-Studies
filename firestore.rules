@@ -1,0 +1,207 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Regra padrão: negar acesso
+    match /{document=**} {
+      allow read, write: if true;
+    }
+    
+    // Usuários podem ler e escrever seus próprios dados
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      
+      // Subcoleções do usuário
+      match /{subcollection=**} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+    
+    // ============================================
+    // REGRAS PARA O DIÁRIO DE BORDO
+    // ============================================
+    match /journalEntries/{entryId} {
+      // Usuários só podem ler suas próprias entradas
+      allow read: if request.auth != null && 
+                  resource.data.userId == request.auth.uid;
+      
+      // Usuários só podem criar entradas para si mesmos
+      allow create: if request.auth != null && 
+                    request.resource.data.userId == request.auth.uid &&
+                    request.resource.data.keys().hasAll(['userId', 'title', 'content', 'createdAt', 'updatedAt']) &&
+                    request.resource.data.title is string &&
+                    request.resource.data.title.size() > 0 &&
+                    request.resource.data.content is string &&
+                    request.resource.data.content.size() > 0;
+      
+      // Usuários só podem atualizar suas próprias entradas
+      // E não podem modificar userId ou createdAt
+      allow update: if request.auth != null && 
+                    resource.data.userId == request.auth.uid &&
+                    request.resource.data.userId == resource.data.userId &&
+                    request.resource.data.createdAt == resource.data.createdAt &&
+                    request.resource.data.title is string &&
+                    request.resource.data.title.size() > 0 &&
+                    request.resource.data.content is string &&
+                    request.resource.data.content.size() > 0;
+      
+      // Usuários só podem deletar suas próprias entradas
+      allow delete: if request.auth != null && 
+                    resource.data.userId == request.auth.uid;
+    }
+    
+    // ============================================
+    // REGRAS PARA LEITURAS
+    // ============================================
+    match /readings/{readingId} {
+      allow read: if request.auth != null && 
+                  resource.data.userId == request.auth.uid;
+      
+      allow create: if request.auth != null && 
+                    request.resource.data.userId == request.auth.uid;
+      
+      allow update: if request.auth != null && 
+                    resource.data.userId == request.auth.uid &&
+                    request.resource.data.userId == resource.data.userId;
+      
+      allow delete: if request.auth != null && 
+                    resource.data.userId == request.auth.uid;
+    }
+    
+    // ============================================
+    // REGRAS PARA MISSÕES (em subcoleção)
+    // ============================================
+    match /users/{userId}/missions/{missionId} {
+      allow read: if request.auth != null && 
+                  request.auth.uid == userId;
+      
+      allow create: if request.auth != null && 
+                    request.auth.uid == userId;
+      
+      allow update: if request.auth != null && 
+                    request.auth.uid == userId;
+      
+      allow delete: if request.auth != null && 
+                    request.auth.uid == userId;
+    }
+    
+    // ============================================
+    // REGRAS PARA REDAÇÕES (em subcoleção)
+    // ============================================
+    match /users/{userId}/redacoes/{redacaoId} {
+      allow read: if request.auth != null && 
+                  request.auth.uid == userId;
+      
+      allow create: if request.auth != null && 
+                    request.auth.uid == userId;
+      
+      allow update: if request.auth != null && 
+                    request.auth.uid == userId;
+      
+      allow delete: if request.auth != null && 
+                    request.auth.uid == userId;
+    }
+    
+    // ============================================
+    // REGRAS PARA CONTEÚDO PROGRAMÁTICO (em subcoleção)
+    // ============================================
+    match /users/{userId}/contentPrograms/{programId} {
+      allow read: if request.auth != null && 
+                  request.auth.uid == userId;
+      
+      allow create: if request.auth != null && 
+                    request.auth.uid == userId;
+      
+      allow update: if request.auth != null && 
+                    request.auth.uid == userId;
+      
+      allow delete: if request.auth != null && 
+                    request.auth.uid == userId;
+    }
+    
+    // ============================================
+    // REGRAS PARA CATEGORIAS DE CONTEÚDO (em subcoleção)
+    // ============================================
+    match /users/{userId}/contentCategories/{categoryId} {
+      allow read: if request.auth != null && 
+                  request.auth.uid == userId;
+      
+      allow create: if request.auth != null && 
+                    request.auth.uid == userId;
+      
+      allow update: if request.auth != null && 
+                    request.auth.uid == userId;
+      
+      allow delete: if request.auth != null && 
+                    request.auth.uid == userId;
+    }
+    
+    // ============================================
+    // REGRAS PARA PROGRAMAÇÃO SEMANAL (em subcoleção)
+    // ============================================
+    match /users/{userId}/weeklySchedules/{scheduleId} {
+      allow read: if request.auth != null && 
+                  request.auth.uid == userId;
+      
+      allow create: if request.auth != null && 
+                    request.auth.uid == userId;
+      
+      allow update: if request.auth != null && 
+                    request.auth.uid == userId;
+      
+      allow delete: if request.auth != null && 
+                    request.auth.uid == userId;
+    }
+    
+    // ============================================
+    // REGRAS PARA MISSÕES RECORRENTES (em subcoleção)
+    // ============================================
+    match /users/{userId}/recurringMissions/{recurringMissionId} {
+      allow read: if request.auth != null && 
+                  request.auth.uid == userId;
+      
+      allow create: if request.auth != null && 
+                    request.auth.uid == userId;
+      
+      allow update: if request.auth != null && 
+                    request.auth.uid == userId;
+      
+      allow delete: if request.auth != null && 
+                    request.auth.uid == userId;
+    }
+    
+    // ============================================
+    // REGRAS PARA CATEGORIAS DE MISSÕES RECORRENTES (em subcoleção)
+    // ============================================
+    match /users/{userId}/recurringMissionCategories/{categoryId} {
+      allow read: if request.auth != null && 
+                  request.auth.uid == userId;
+      
+      allow create: if request.auth != null && 
+                    request.auth.uid == userId;
+      
+      allow update: if request.auth != null && 
+                    request.auth.uid == userId;
+      
+      allow delete: if request.auth != null && 
+                    request.auth.uid == userId;
+    }
+    
+    // ============================================
+    // REGRAS PARA ENTRADAS DO DIÁRIO (em subcoleção)
+    // ============================================
+    match /users/{userId}/journalEntries/{entryId} {
+      allow read: if request.auth != null && 
+                  request.auth.uid == userId;
+      
+      allow create: if request.auth != null && 
+                    request.auth.uid == userId;
+      
+      allow update: if request.auth != null && 
+                    request.auth.uid == userId;
+      
+      allow delete: if request.auth != null && 
+                    request.auth.uid == userId;
+    }
+  }
+}

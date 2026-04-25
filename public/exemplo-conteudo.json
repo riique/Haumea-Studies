@@ -1,0 +1,320 @@
+{
+  "Matemática": {
+    "Frentes": {
+      "Matemática I — Aritmética, Álgebra & Estruturas": {
+        "Tópicos": {
+          "Matemática Básica": [
+            "Frações e equações",
+            "Fatoração e manipulação algébrica",
+            "Potenciação e radiciação",
+            "Proporcionalidade"
+          ],
+          "Conjuntos & Conjuntos Numéricos": [
+            "Teoria dos conjuntos",
+            "Conjuntos numéricos"
+          ],
+          "Teoria dos Números": [
+            "Divisibilidade, MDC e MMC",
+            "Princípio da Indução Finita",
+            "Aritmética modular"
+          ]
+        }
+      },
+      "Matemática II — Funções, Exponenciais/Logs & Progressões": {
+        "Tópicos": {
+          "Funções": [
+            "Definição",
+            "Função afim",
+            "Função quadrática",
+            "Função modular",
+            "Função composta e inversa"
+          ],
+          "Logaritmos": [
+            "Função exponencial",
+            "Função logarítmica",
+            "Equações logarítmicas"
+          ],
+          "Progressões": [
+            "PA",
+            "PG", 
+            "PH"
+          ]
+        }
+      },
+      "Matemática III — Geometria Plana & Espacial": {
+        "Tópicos": {
+          "Geometria Plana": [
+            "Área de figuras planas",
+            "Teorema de Pitágoras",
+            "Trigonometria no triângulo retângulo",
+            "Lei dos senos e cossenos"
+          ],
+          "Geometria Espacial": [
+            "Prismas e cilindros",
+            "Pirâmides e cones",
+            "Esferas"
+          ]
+        }
+      }
+    }
+  },
+  "Física": {
+    "Frentes": {
+      "Frente A — Mecânica e Fluidos": {
+        "Tópicos": {
+          "Cinemática": [
+            "MRU e MRUV",
+            "Lançamentos",
+            "Movimento circular"
+          ],
+          "Dinâmica": [
+            "Leis de Newton",
+            "Atrito",
+            "Força elástica",
+            "Força gravitacional"
+          ],
+          "Energia e Trabalho": [
+            "Trabalho e potência",
+            "Conservação da energia",
+            "Impulso e quantidade de movimento"
+          ],
+          "Hidrostática": [
+            "Pressão",
+            "Princípio de Arquimedes",
+            "Vasos comunicantes"
+          ]
+        }
+      },
+      "Frente B — Termologia, Termodinâmica e Ondas": {
+        "Tópicos": {
+          "Termologia": [
+            "Temperatura",
+            "Dilatação",
+            "Calorimetria",
+            "Mudanças de estado"
+          ],
+          "Termodinâmica": [
+            "Leis da termodinâmica",
+            "Máquinas térmicas",
+            "Ciclos termodinâmicos"
+          ],
+          "Ondulatória": [
+            "MHS",
+            "Ondas estacionárias",
+            "Acústica",
+            "Efeito Doppler"
+          ]
+        }
+      },
+      "Frente C — Eletromagnetismo": {
+        "Tópicos": {
+          "Eletrostática": [
+            "Lei de Coulomb",
+            "Campo elétrico",
+            "Potencial elétrico"
+          ],
+          "Eletrodinâmica": [
+            "Corrente elétrica",
+            "Resistência elétrica",
+            "Leis de Ohm",
+            "Circuitos elétricos"
+          ],
+          "Magnetismo": [
+            "Campo magnético",
+            "Força magnética",
+            "Indução eletromagnética"
+          ]
+        }
+      }
+    }
+  },
+  "Química": {
+    "Frentes": {
+      "Química Geral & Inorgânica": {
+        "Tópicos": {
+          "Aspectos Macroscópicos": [
+            "Propriedades da Matéria",
+            "Estados físicos",
+            "Métodos de separação"
+          ],
+          "Atomística": [
+            "Modelos Atômicos",
+            "Distribuição Eletrônica",
+            "Números Quânticos"
+          ],
+          "Classificação Periódica": [
+            "Tabela periódica",
+            "Propriedades periódicas",
+            "Ligações químicas"
+          ],
+          "Química Inorgânica": [
+            "Funções inorgânicas",
+            "Ácidos e bases",
+            "Sais e óxidos"
+          ]
+        }
+      },
+      "Físico-Química": {
+        "Tópicos": {
+          "Soluções": [
+            "Solubilidade",
+            "Unidades de concentração",
+            "Propriedades coligativas"
+          ],
+          "Termoquímica": [
+            "Entalpia",
+            "Lei de Hess",
+            "Entropia e energia livre"
+          ],
+          "Cinética Química": [
+            "Velocidade de reação",
+            "Fatores que influenciam a velocidade",
+            "Mecanismo de reação"
+          ],
+          "Equilíbrio Químico": [
+            "Constante de equilíbrio",
+            "Princípio de Le Chatelier",
+            "Equilíbrio iônico"
+          ]
+        }
+      },
+      "Química Orgânica": {
+        "Tópicos": {
+          "Hidrocarbonetos": [
+            "Alcanos, alcenos e alcinos",
+            "Aromáticos",
+            "Nomenclatura"
+          ],
+          "Funções Orgânicas": [
+            "Álcoois e fenóis",
+            "Aldeídos e cetonas",
+            "Ácidos carboxílicos",
+            "Ésteres e éteres"
+          ],
+          "Reações Orgânicas": [
+            "Substituição",
+            "Adição",
+            "Eliminação",
+            "Oxidação e redução"
+          ]
+        }
+      }
+    }
+  },
+  "Biologia": {
+    "Frentes": {
+      "Biologia Celular e Molecular": {
+        "Tópicos": {
+          "Citologia": [
+            "Membrana plasmática",
+            "Organelas citoplasmáticas",
+            "Núcleo celular"
+          ],
+          "Bioquímica": [
+            "Carboidratos",
+            "Lipídios",
+            "Proteínas",
+            "Ácidos nucleicos"
+          ],
+          "Metabolismo": [
+            "Respiração celular",
+            "Fotossíntese",
+            "Fermentação"
+          ]
+        }
+      },
+      "Genética e Evolução": {
+        "Tópicos": {
+          "Genética Clássica": [
+            "Leis de Mendel",
+            "Herança ligada ao sexo",
+            "Alelos múltiplos"
+          ],
+          "Genética Molecular": [
+            "Estrutura do DNA",
+            "Replicação",
+            "Transcrição e tradução"
+          ],
+          "Evolução": [
+            "Teorias evolutivas",
+            "Seleção natural",
+            "Especiação"
+          ]
+        }
+      },
+      "Ecologia e Meio Ambiente": {
+        "Tópicos": {
+          "Ecologia": [
+            "Cadeias e teias alimentares",
+            "Ciclos biogeoquímicos",
+            "Populações e comunidades"
+          ],
+          "Meio Ambiente": [
+            "Poluição",
+            "Aquecimento global",
+            "Biodiversidade"
+          ]
+        }
+      }
+    }
+  },
+  "Língua Portuguesa": {
+    "Frentes": {
+      "Gramática": {
+        "Tópicos": {
+          "Morfologia": [
+            "Classes de palavras",
+            "Estrutura das palavras",
+            "Formação de palavras"
+          ],
+          "Sintaxe": [
+            "Termos da oração",
+            "Período composto",
+            "Concordância",
+            "Regência"
+          ],
+          "Semântica": [
+            "Significado das palavras",
+            "Figuras de linguagem",
+            "Vícios de linguagem"
+          ]
+        }
+      },
+      "Literatura": {
+        "Tópicos": {
+          "Escolas Literárias": [
+            "Barroco",
+            "Arcadismo",
+            "Romantismo",
+            "Realismo/Naturalismo",
+            "Parnasianismo",
+            "Simbolismo"
+          ],
+          "Literatura Moderna": [
+            "Modernismo 1ª fase",
+            "Modernismo 2ª fase",
+            "Modernismo 3ª fase"
+          ],
+          "Literatura Contemporânea": [
+            "Tendências atuais",
+            "Literatura marginal"
+          ]
+        }
+      },
+      "Redação": {
+        "Tópicos": {
+          "Tipologia Textual": [
+            "Dissertação argumentativa",
+            "Narrativa",
+            "Descrição"
+          ],
+          "Técnicas de Redação": [
+            "Coesão e coerência",
+            "Argumentação",
+            "Estrutura textual"
+          ]
+        }
+      }
+    }
+  }
+}

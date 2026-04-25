@@ -1,0 +1,277 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design System - Haumea Studies */
+@layer base {
+  :root {
+    /* Colors - Light Theme (Clean & Professional) */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 15%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 15%;
+    
+    --primary: 230 65% 55%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 10% 15%;
+    
+    --accent: 215 70% 50%;
+    --accent-foreground: 0 0% 100%;
+    
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 6% 45%;
+    
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 230 65% 55%;
+    
+    /* Cores de Status */
+    --destructive: 0 72% 51%;        /* Vermelho */
+    --destructive-foreground: 0 0% 100%;
+    
+    --success: 142 71% 45%;          /* Verde */
+    --warning: 38 92% 50%;           /* Laranja */
+    
+    /* Border Radius */
+    --radius-lg: 1rem;
+    --radius-md: 0.75rem;
+    --radius-sm: 0.5rem;
+  }
+
+  .dark {
+    /* === BACKGROUNDS === */
+    /* Fundo principal - Azul muito escuro quase preto */
+    --background: 222 47% 7%;        /* #0a0e1a */
+    
+    /* Fundo de cards - Azul escuro levemente mais claro */
+    --card: 222 47% 11%;             /* #131828 */
+    --card-foreground: 210 40% 98%;  /* #f8fafc */
+    
+    /* === TEXTOS === */
+    /* Texto principal - Branco quase puro com leve azul */
+    --foreground: 210 40% 98%;       /* #f8fafc → mais claro */
+    
+    /* Texto secundário - Cinza azulado médio */
+    --muted-foreground: 215 20% 65%; /* #94a3b8 → melhor contraste */
+    
+    /* === ELEMENTOS INTERATIVOS === */
+    /* Primary - Roxo/Azul vibrante */
+    --primary: 239 84% 67%;          /* #a78bfa */
+    --primary-foreground: 210 40% 98%;
+    
+    /* Secondary - Azul escuro para backgrounds sutis */
+    --secondary: 220 40% 13%;        /* #141b2d */
+    --secondary-foreground: 210 40% 98%;
+    
+    /* Accent - Roxo vibrante (igual primary por consistência) */
+    --accent: 239 84% 67%;
+    --accent-foreground: 210 40% 98%;
+    
+    /* Muted - Para backgrounds hover */
+    --muted: 217 33% 17%;            /* #1e293b */
+    
+    /* === BORDAS E INPUTS === */
+    --border: 217 33% 20%;           /* #1e293b → mais visível */
+    --input: 217 33% 20%;
+    --ring: 239 84% 67%;             /* Focus ring roxo */
+    
+    /* === ESTADOS === */
+    --destructive: 0 72% 51%;        /* #dc2626 - Vermelho */
+    --destructive-foreground: 210 40% 98%;
+    
+    --success: 142 71% 45%;          /* #10b981 - Verde */
+    --warning: 38 92% 50%;           /* #f59e0b - Laranja */
+    
+    /* === CORES ESPECÍFICAS PARA GRÁFICOS === */
+    --chart-1: 239 84% 67%;          /* Roxo */
+    --chart-2: 142 71% 45%;          /* Verde */
+    --chart-3: 38 92% 50%;           /* Laranja */
+    --chart-4: 200 98% 39%;          /* Azul ciano */
+    --chart-5: 340 82% 52%;          /* Rosa */
+  }
+}
+
+/* Base Styles */
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* === SCROLLBAR DARK MODE === */
+.dark ::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
+
+/* === SELEÇÃO DE TEXTO === */
+.dark ::selection {
+  background: hsl(var(--primary) / 0.3);
+  color: hsl(var(--primary-foreground));
+}
+
+/* === UTILITÁRIOS DARK MODE === */
+@layer utilities {
+  /* Texto com contraste garantido */
+  .text-contrast {
+    @apply text-foreground dark:text-foreground;
+  }
+  
+  /* Background com contraste */
+  .bg-contrast {
+    @apply bg-background dark:bg-background;
+  }
+  
+  /* Card com efeito glass no dark */
+  .card-glass {
+    @apply bg-card/95 backdrop-blur-sm dark:bg-card/80;
+  }
+  
+  /* Border suave que funciona em ambos os modos */
+  .border-subtle {
+    @apply border-border/50 dark:border-border;
+  }
+  
+  /* Hover que funciona em ambos os modos */
+  .hover-lift {
+    @apply transition-all hover:shadow-md dark:hover:shadow-primary/10;
+  }
+}
+
+/* === DRAG AND DROP STYLES === */
+[data-rbd-drag-handle-draggable-id] {
+  cursor: grab !important;
+}
+
+[data-rbd-drag-handle-draggable-id]:active {
+  cursor: grabbing !important;
+}
+
+[data-rbd-draggable-id].dragging {
+  opacity: 0.8;
+}
+
+/* === MARKDOWN & LATEX RENDERING STYLES === */
+.markdown-content {
+  line-height: 1.6;
+}
+
+/* KaTeX Math Rendering */
+.markdown-content .katex {
+  font-size: 1.1em;
+}
+
+.markdown-content .katex-display {
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background: hsl(var(--muted));
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.dark .markdown-content .katex-display {
+  background: hsl(var(--secondary));
+}
+
+/* Ensure KaTeX colors work in both themes */
+.dark .markdown-content .katex {
+  color: hsl(var(--foreground));
+}
+
+.dark .markdown-content .katex .mord,
+.dark .markdown-content .katex .mbin,
+.dark .markdown-content .katex .mrel,
+.dark .markdown-content .katex .mop {
+  color: hsl(var(--foreground));
+}
+
+/* Markdown specific styles */
+.markdown-content pre {
+  margin: 1rem 0;
+}
+
+.markdown-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin: 1rem 0;
+}
+
+.markdown-content table {
+  width: 100%;
+}
+
+/* === MOBILE UTILITIES === */
+@layer utilities {
+  /* Hide scrollbar but keep scroll functionality */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Snap scroll for horizontal containers */
+  .snap-x-mandatory {
+    scroll-snap-type: x mandatory;
+  }
+  
+  .snap-start {
+    scroll-snap-align: start;
+  }
+}
+
+/* Prevent zoom on input focus in iOS */
+@media screen and (max-width: 767px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Touch-friendly tap targets */
+@media (hover: none) and (pointer: coarse) {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
